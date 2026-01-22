@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>THE RAND ENGINE — ONTOLOGICAL DIAGNOSTICS</title>
+
+<style>
+/* =========================
+   TEMPLE-STYLE COSMOLOGY
+   ========================= */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #000000;
+    color: #00ff00;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+body {
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            #000000,
+            #000000 2px,
+            #020202 2px,
+            #020202 4px
+        );
+}
+
+header {
+    border-bottom: 4px double #00ff00;
+    padding: 20px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #ffff00;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 2rem;
+    letter-spacing: 3px;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    padding: 20px;
+}
+
+.blink {
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.box {
+    border: 2px solid #00ff00;
+    padding: 16px;
+    margin: 20px 0;
+    background: #000000;
+}
+
+.warning {
+    border: 2px solid #ff0000;
+    color: #ff4444;
+}
+
+.quote {
+    color: #00ffff;
+}
+
+hr {
+    border: none;
+    border-top: 1px dashed #00ff00;
+    margin: 30px 0;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+}
+
+input {
+    width: 100%;
+    background: #000000;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    padding: 6px;
+    font-family: inherit;
+}
+
+button {
+    margin-top: 16px;
+    width: 100%;
+    background: #000000;
+    border: 2px solid #ffff00;
+    color: #ffff00;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #111111;
+}
+
+#results {
+    display: none;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>THE RAND ENGINE</h1>
+    <p class="blink">ONTOLOGY &gt; EPISTEMOLOGY &gt; MEDIA</p>
+    <p>DIAGNOSTIC INSTRUMENT FOR INFORMATIONAL ENTROPY</p>
+</header>
+
+<div class="container">
+
+<div class="box quote">
+    Everything you know passed through hands that were not yours.  
+    Every hand crushed something.  
+    The question is not <em>if</em> truth decayed,  
+    but how much survived the fall.
+</div>
+
+<hr>
+
+<div class="box">
+<h2>AXIOM</h2>
+<p>
+INFORMATION IS NOT CREATED BY PROCESSING.  
+IT IS ONLY PRESERVED OR DESTROYED.
+</p>
+<p>
+Every layer of mediation is an amputation.  
+Every retelling is a subtraction pretending to be an addition.
+</p>
+</div>
+
+<hr>
+
+<div class="box">
+<h2>THE RAND (R)</h2>
+<p>
+The Rand is not a metaphor.  
+It is a unit of epistemic survival.
+</p>
+<p>
+<b>1.0 R</b> — Lossless transmission. Direct contact.  
+<br><b>0.5 R</b> — Half the structure collapsed.  
+<br><b>0.0 R</b> — Total abstraction. Noise worship. Ghosts talking to ghosts.
+</p>
+<p>
+Rands do not belong to sources.  
+They exist only <em>between</em> sources.  
+Truth is relational or it is nothing.
+</p>
+</div>
+
+<hr>
+
+<div class="box">
+<h2>PROTOTAXIS</h2>
+<p>
+Speech is not information by default.  
+Most language is decorative hallucination.
+</p>
+<p>
+<b>1 Prototaxis</b> exists only when:
+</p>
+<ul>
+<li>A thing is identified.</li>
+<li>An action or property is asserted.</li>
+<li>The claim survives physical reality.</li>
+</ul>
+<p>
+“No vibes.”  
+“No narratives.”  
+“No consensus.”
+</p>
+<p>
+A statement either hooks into spacetime  
+or it collapses into zero.
+</p>
+</div>
+
+<hr>
+
+<div class="box">
+<h2>WHY THIS WORKS</h2>
+<p>
+Decay is measurable even when origins are lost.
+</p>
+<p>
+Radiation tells you something existed.  
+Mediation does the same.
+</p>
+<p>
+By measuring loss between layers,  
+you can reconstruct the missing mass of reality.
+</p>
+</div>
+
+<hr>
+
+<div class="box">
+<h2>FORENSIC RAND CALCULATOR</h2>
+
+<label>Prototaxis in Earlier Source (A):</label>
+<input type="number" id="bitsA" placeholder="e.g. 12">
+
+<label>Prototaxis Preserved in Later Source (B):</label>
+<input type="number" id="bitsB" placeholder="e.g. 3">
+
+<label>Mediation Layers Between A and B:</label>
+<input type="number" id="stagesAB" placeholder="e.g. 2">
+
+<label>Layers Between Reality and Source A:</label>
+<input type="number" id="stagesOriginA" placeholder="e.g. 1">
+
+<button onclick="calculate()">EXECUTE DIAGNOSTIC</button>
+
+<div id="results" class="box warning">
+<p id="randOut"></p>
+<p id="originOut"></p>
+<p id="horizon"></p>
+</div>
+</div>
+
+<hr>
+
+<div class="box">
+<h2>SEMANTIC EVENT HORIZON</h2>
+<p>
+Below a critical Rand value, reconstruction fails.
+</p>
+<p>
+Past this point, you are no longer misinformed.
+<br>You are inside pure abstraction.
+</p>
+<p>
+The system prefers you here.
+</p>
+</div>
+
+</div>
+
+<footer>
+NO RIGHTS RESERVED • REALITY DOES NOT REQUIRE PERMISSION
+</footer>
+
+<script>
+function calculate() {
+    const A = parseFloat(bitsA.value);
+    const B = parseFloat(bitsB.value);
+    const n = parseFloat(stagesAB.value);
+    const m = parseFloat(stagesOriginA.value);
+
+    if (!A || !B || !n) {
+        alert("INSUFFICIENT DATA FOR REALITY RECONSTRUCTION");
+        return;
+    }
+
+    const R = Math.pow(B / A, 1 / n);
+    const origin = A / Math.pow(R, m);
+
+    results.style.display = "block";
+    randOut.innerHTML = "<b>RAND VALUE:</b> " + R.toFixed(4);
+    originOut.innerHTML = "<b>ESTIMATED ORIGINAL PROTOTAXIS:</b> " + origin.toFixed(2);
+
+    if (R < 0.05) {
+        horizon.innerHTML = "WARNING: SEMANTIC EVENT HORIZON BREACHED.<br>YOU ARE OBSERVING NOISE.";
+    } else {
+        horizon.innerHTML = "";
+    }
+}
+</script>
+
+</body>
+</html>
