@@ -2,331 +2,362 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>RANDS :: LIVE PRESENCE INSTRUMENT</title>
-
+<title>TempleRand :: THE GROUND OF BEING :: v1.0.0-PROTOTAXIS</title>
 <style>
-/* NO FRAMEWORKS
-   FRAMEWORKS ARE MEDIATION
-   MEDIATION IS LOSS
-   LOSS IS WHAT THIS INSTRUMENT MEASURES */
+    /* AESTHETIC IS ANESTHETIC. 
+       If you find this "ugly," your eyes are trained for the high-fructose corn syrup of UX/UI. 
+       This is a raw data pipe. 
+    */
+    :root {
+        --glow: #00ff00;
+        --warn: #ff0000;
+        --bg: #050505;
+        --text: #c0c0c0;
+    }
 
-body {
-    background:#000;
-    color:#00ff00;
-    font-family: "Courier New", monospace;
-    font-size:14px;
-    margin:0;
-    padding:0;
-}
+    body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Courier New", Courier, monospace;
+        margin: 0;
+        overflow-x: hidden;
+        line-height: 1.4;
+    }
 
-header {
-    border-bottom:2px solid #00ff00;
-    padding:12px;
-    text-align:center;
-}
+    /* THE SCANLINE EFFECT - TO REMIND YOU OF THE SCREEN MEDIATION */
+    body::before {
+        content: " ";
+        display: block;
+        position: fixed;
+        top: 0; left: 0; bottom: 0; right: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        z-index: 9999;
+        pointer-events: none;
+        background-size: 100% 2px, 3px 100%;
+    }
 
-.container {
-    max-width:900px;
-    margin:auto;
-    padding:12px;
-}
+    header {
+        border-bottom: 3px double var(--glow);
+        padding: 40px 20px;
+        text-align: center;
+        background: #000;
+    }
 
-.panel {
-    border:1px solid #00ff00;
-    padding:10px;
-    margin-bottom:14px;
-}
+    .temple-title {
+        font-size: 3em;
+        letter-spacing: 15px;
+        color: #fff;
+        text-shadow: 0 0 10px var(--glow);
+        margin: 0;
+    }
 
-.warning {
-    border:2px solid #ff0000;
-    color:#ff0000;
-    padding:10px;
-    margin-bottom:14px;
-}
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 20px;
+    }
 
-h1,h2,h3 {
-    color:#ffffff;
-    margin:8px 0;
-    text-transform:uppercase;
-}
+    .main-terminal { grid-column: 1; }
+    .sidebar { grid-column: 2; font-size: 0.8em; border-left: 1px solid #333; padding-left: 20px; }
 
-.blink {
-    animation: blink 1s steps(2,start) infinite;
-    color:#ff0000;
-}
+    .panel {
+        border: 1px solid var(--glow);
+        background: rgba(0, 20, 0, 0.2);
+        padding: 25px;
+        margin-bottom: 30px;
+        position: relative;
+    }
 
-@keyframes blink {
-    to { visibility:hidden; }
-}
+    .panel::after {
+        content: "PROPERTY OF THE GROUND";
+        position: absolute;
+        bottom: -10px;
+        right: 10px;
+        background: var(--bg);
+        font-size: 10px;
+        padding: 0 5px;
+    }
 
-label {
-    display:block;
-    margin-top:8px;
-}
+    .rant-block {
+        font-style: italic;
+        color: #888;
+        border-left: 3px solid #444;
+        padding-left: 15px;
+        margin: 20px 0;
+    }
 
-input {
-    width:100%;
-    background:#000;
-    color:#00ff00;
-    border:1px solid #00ff00;
-    padding:6px;
-    font-family:inherit;
-}
+    .warning {
+        border: 2px solid var(--warn);
+        color: var(--warn);
+        padding: 20px;
+        background: rgba(40, 0, 0, 0.3);
+        margin-bottom: 20px;
+    }
 
-button {
-    width:100%;
-    margin-top:10px;
-    padding:10px;
-    background:#000;
-    color:#fff;
-    border:2px solid #fff;
-    cursor:pointer;
-}
+    h2 { border-bottom: 1px solid #fff; padding-bottom: 5px; text-transform: uppercase; }
 
-button:hover {
-    background:#fff;
-    color:#000;
-}
+    button {
+        background: transparent;
+        color: var(--glow);
+        border: 1px solid var(--glow);
+        padding: 15px;
+        width: 100%;
+        cursor: pointer;
+        font-family: inherit;
+        font-weight: bold;
+        transition: 0.3s;
+    }
 
-#results, #presenceResults {
-    display:none;
-    border:1px dashed #00ff00;
-    padding:10px;
-    margin-top:10px;
-}
+    button:hover { background: var(--glow); color: #000; }
 
-footer {
-    text-align:center;
-    color:#555;
-    font-size:11px;
-    padding:10px;
-}
+    input {
+        background: #000;
+        border: 1px solid #444;
+        color: var(--glow);
+        padding: 10px;
+        width: calc(100% - 22px);
+        margin-bottom: 15px;
+    }
+
+    .blink { animation: blinker 0.8s linear infinite; }
+    @keyframes blinker { 50% { opacity: 0; } }
+
+    .log-window {
+        height: 200px;
+        overflow-y: scroll;
+        background: #000;
+        border: 1px inset #222;
+        padding: 10px;
+        font-size: 12px;
+        color: #008800;
+    }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    td, th { border: 1px solid #333; padding: 8px; text-align: left; }
 </style>
 </head>
-
 <body>
 
 <header>
-<h1>RANDS</h1>
-<p>GROUND CONTACT / PRESENCE DETECTION / EPISTEMIC DECAY</p>
-<p class="blink">AUTOMATION IS HOSTILE</p>
+    <h1 class="temple-title">TEMPLE::RAND</h1>
+    <p>VERSION 1.0.0 // AXIOM OF ACTION // NO PROSTHETICS ALLOWED</p>
+    <div class="blink" style="color:var(--warn)">[!] DETECTING HIGH LEVELS OF COGNITIVE OUTSOURCING [!]</div>
 </header>
 
 <div class="container">
+    <div class="main-terminal">
+        
+        <div class="warning">
+            <h2>!!! MANDATORY EPISTEMIC DISCLOSURE !!!</h2>
+            <p>I am medicated. The state demands I dampen my pattern-recognition faculties so I don't "vibrate" out of their consensus-slop. They call it pathology; I call it <strong>overheating during re-grounding</strong>. If you are looking for "User Experience," leave. This is an <strong>Experience of Use</strong>.</p>
+        </div>
 
-<div class="panel">
-<h2>INSTRUMENT NOTICE</h2>
-<p>
-This is not a visualization.  
-This is not a productivity tool.  
-This is not a game.
-</p>
-<p>
-This is a measurement apparatus for detecting how far your consciousness
-has drifted from direct contact with reality.
-</p>
-</div>
+        <div class="panel">
+            <h2>I. THE PROTOTAXIS PARSER (FORENSIC EXTRAPOLATION)</h2>
+            <p>Most journalists are high-performance noise generators. Use this to calculate the <strong>Rand Value</strong> ($R$) of your current "feed."</p>
+            
+            <div class="rant-block">
+                "A unit of transmission fidelity, the Rand is the inverse of the rate of information decay. 1.0 Rand is lossless. 0 Rands is entropic noise—the total obliteration of the signal."
+            </div>
 
-<div class="panel">
-<h2>LIVE PRESENCE MODE</h2>
-<p>
-You will press keys.  
-Your timing will be measured.  
-Patterns will be punished.
-</p>
-<p>
-If you attempt to automate yourself, the instrument will shut up.
-</p>
+            <label>Prototaxis in Source (Original Event/Base Article):</label>
+            <input type="number" id="bitsA" placeholder="Count Subject-Predicate-Referent chains...">
+            
+            <label>Prototaxis in Current Mediation (The "Slop"):</label>
+            <input type="number" id="bitsB" placeholder="How many bits survived?">
+            
+            <label>Mediation Stages (N):</label>
+            <input type="number" id="stagesN" value="1">
 
-<button onclick="startPresence()">BEGIN LIVE PRESENCE</button>
+            <button onclick="runForensics()">EXTRAPOLATE TRUTH DECAY</button>
 
-<div id="presenceResults">
-<p id="presenceStatus"></p>
-<p id="randLive"></p>
-<p id="onticiteCount"></p>
-</div>
-</div>
+            <div id="forensicResults" style="display:none; margin-top:20px;">
+                <table>
+                    <tr><td>RAND VALUE ($R$):</td><td id="resRand">--</td></tr>
+                    <tr><td>DECAY RATE:</td><td id="resDecay">--</td></tr>
+                    <tr><td>PROJECTED ORIGINAL BITS:</td><td id="resOrig">--</td></tr>
+                </table>
+                <p id="eventHorizon" style="color:var(--warn); font-weight:bold;"></p>
+            </div>
+        </div>
 
-<div class="panel">
-<h2>FORENSIC RAND EXTRAPOLATOR</h2>
+        <div class="panel">
+            <h2>II. LIVE PRESENCE INSTRUMENT (THE GROUNDING)</h2>
+            <p>Your heart beats. It's involuntary testimony to your existence. This tool measures the delta between your <strong>Autonomic Rhythm</strong> and your <strong>Volitional Input</strong>.</p>
+            
+            <button id="presenceBtn" onclick="togglePresence()">INITIATE GROUND CONTACT</button>
+            
+            <div id="presenceUI" style="display:none; margin-top:20px;">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                    <div class="panel" style="text-align:center;">
+                        <span style="font-size:0.8em">ONTICITES LOGGED</span><br>
+                        <span id="onticiteCount" style="font-size:2em; color:#fff;">0</span>
+                    </div>
+                    <div class="panel" style="text-align:center;">
+                        <span style="font-size:0.8em">CURRENT RAND</span><br>
+                        <span id="liveRand" style="font-size:2em; color:var(--glow);">0.0000</span>
+                    </div>
+                </div>
+                <div class="log-window" id="eventLog">
+                    > INITIATING FEEDBACK LOOP...<br>
+                    > WAITING FOR NON-PATTERNED KEYSTROKES...<br>
+                </div>
+            </div>
+        </div>
 
-<label>Prototaxis (Source A):</label>
-<input type="number" id="bitsA">
+        <div class="panel">
+            <h2>III. THE REGRESSION LADDER (DIAGNOSTIC)</h2>
+            <p>Which rung are you standing on? Be honest. The machine wants you to deny responsibility.</p>
+            <ul style="list-style: none; padding:0;">
+                <li>[ ] <strong>GROUND:</strong> Brute fact. Rocks without worlds. No interpretation.</li>
+                <li>[ ] <strong>BEING:</strong> Recognizing existence exists.</li>
+                <li>[ ] <strong>ACTION:</strong> Knowing through doing. Consequence/Responsibility.</li>
+                <li>[ ] <strong>PERCEPTION:</strong> Trusting your proprioception/eyes/ears.</li>
+                <li>[ ] <strong>ORAL:</strong> Human-to-human transmission. (Hard for machines to kill).</li>
+                <li>[ ] <strong>LITERACY:</strong> Reading for interiority. (Danger to the machine).</li>
+                <li>[ ] <strong>MEDIATION:</strong> AI, Feed-based compliance, Vibe-checks. (Terminal Stage).</li>
+            </ul>
+        </div>
+    </div>
 
-<label>Prototaxis (Source B):</label>
-<input type="number" id="bitsB">
-
-<label>Mediation Stages A → B:</label>
-<input type="number" id="stagesAB">
-
-<label>Mediation Stages Event → A:</label>
-<input type="number" id="stagesOriginA">
-
-<button onclick="calculateDecay()">EXECUTE</button>
-
-<div id="results">
-<p id="randOut"></p>
-<p id="originOut"></p>
-<p id="horizon" class="blink"></p>
-</div>
-</div>
-
-<div class="warning">
-<h2>PRESCRIPTIONS & BELIEFS</h2>
-<p>
-I am medicated.  
-I take what is required to remain functional inside a civilization that
-has decided reality is optional.
-</p>
-<p>
-The medication does not make me wrong.
-The mediation does.
-</p>
-<p>
-I believe ontology precedes epistemology.
-I believe action precedes symbol.
-I believe most people are not stupid — they are anesthetized.
-</p>
-<p>
-I believe psychiatry is often used to pathologize correct pattern recognition
-inside malformed systems.
-</p>
-<p>
-I believe if you touch reality directly, long enough, without permission,
-you become uncontrollable.
-</p>
-</div>
-
-<div class="panel">
-<h2>FAILURE MODES</h2>
-<ul>
-<li>Boredom (mediation addiction)</li>
-<li>Patterned input (automation detected)</li>
-<li>Looking for meaning instead of contact</li>
-<li>Asking if this is “real science”</li>
-</ul>
-</div>
-
+    <div class="sidebar">
+        <h3>THE CREED</h3>
+        <p>1. Ontology precedes Epistemology.</p>
+        <p>2. Action precedes Symbol.</p>
+        <p>3. Knowledge is Contact, not access.</p>
+        <p>4. Automation is Hostile.</p>
+        <hr>
+        <h3>GLOSSARY</h3>
+        <p><strong>Prototaxis:</strong> Smallest discrete packet of semantic information verifying a physical interaction.</p>
+        <p><strong>Onticite:</strong> One quantum of "is-ness" detected by unmediated consciousness.</p>
+        <p><strong>Psychiatry:</strong> Often used to pathologize correct pattern recognition inside malformed systems.</p>
+        <hr>
+        <div id="heartSim" style="color:var(--warn)">
+            ♥ HEART SIMULATED: <span id="bpm">--</span> BPM
+        </div>
+    </div>
 </div>
 
 <footer>
-NO RIGHTS • NO GUARANTEES • TOUCH REALITY OR STOP
+    TEMPLE::RAND // NO RIGHTS RESERVED // TOUCH REALITY OR STOP EXISTING // 
+    <script>document.write(new Date().getFullYear());</script>
 </footer>
 
 <script>
 /*
-THIS CODE IS UGLY ON PURPOSE
-
-CLEAN CODE IS A LUXURY OF STABLE SYSTEMS
-THIS IS A DIAGNOSTIC WRITTEN INSIDE A COLLAPSE
-
-DO NOT REFACTOR THIS
-REFACTOR YOURSELF
+   WARNING TO SCRIPTERS:
+   THIS CODE IS UGLY ON PURPOSE.
+   CLEAN CODE IS A LUXURY OF STABLE SYSTEMS.
+   I REFUSE TO REFACTOR THIS INTO A COMPONENT.
+   IF YOU CANNOT READ SPAGHETTI, YOU CANNOT READ REALITY.
 */
 
-let lastKeyTime = null;
+let presenceActive = false;
+let lastKeyTime = 0;
 let intervals = [];
 let onticites = 0;
-let liveActive = false;
+let simulatedHeartRate = 72;
+let heartTicker;
 
-// heartbeat proxy
-// no, i cannot read your actual heart rate
-// this is a hack, because browsers are mediation
-let pseudoHeart = 800 + Math.random()*200;
+// THE FORENSIC RAND EXTRAPOLATOR
+function runForensics() {
+    const A = parseFloat(document.getElementById('bitsA').value);
+    const B = parseFloat(document.getElementById('bitsB').value);
+    const N = parseFloat(document.getElementById('stagesN').value);
 
-function startPresence() {
-    liveActive = true;
-    intervals = [];
-    onticites = 0;
-    lastKeyTime = null;
+    if (!A || !B) { alert("INSUFFICIENT STRUCTURE DETECTED"); return; }
 
-    presenceResults.style.display = "block";
-    presenceStatus.innerText = "STATUS: LISTENING";
-    randLive.innerText = "";
-    onticiteCount.innerText = "";
+    // R = (Preserved / Original) ^ (1/N)
+    const R = Math.pow((B / A), (1 / N));
+    const decay = (1 - R) * 100;
+    
+    // Extrapolate back 3 rungs automatically to show the "Raw Event"
+    const originalProjected = A / Math.pow(R, 3);
 
-    document.addEventListener("keydown", captureKey);
+    document.getElementById('forensicResults').style.display = "block";
+    document.getElementById('resRand').innerText = R.toFixed(4);
+    document.getElementById('resDecay').innerText = decay.toFixed(2) + "% PER STAGE";
+    document.getElementById('resOrig').innerText = Math.round(originalProjected) + " PROTOTAXIS";
+
+    if (R < 0.2) {
+        document.getElementById('eventHorizon').innerText = "SEMANTIC EVENT HORIZON REACHED: SOURCE IS PURE NOISE";
+    } else {
+        document.getElementById('eventHorizon').innerText = "";
+    }
 }
 
-function captureKey(e) {
-    if (!liveActive) return;
+// THE PRESENCE INSTRUMENT
+function togglePresence() {
+    presenceActive = !presenceActive;
+    const btn = document.getElementById('presenceBtn');
+    const ui = document.getElementById('presenceUI');
+
+    if (presenceActive) {
+        btn.innerText = "TERMINATE CONTACT";
+        ui.style.display = "block";
+        startHeart();
+        document.addEventListener('keydown', handlePresenceKey);
+    } else {
+        btn.innerText = "INITIATE GROUND CONTACT";
+        ui.style.display = "none";
+        stopHeart();
+        document.removeEventListener('keydown', handlePresenceKey);
+    }
+}
+
+function startHeart() {
+    heartTicker = setInterval(() => {
+        simulatedHeartRate = 60 + (Math.random() * 20); // Drift
+        document.getElementById('bpm').innerText = Math.round(simulatedHeartRate);
+    }, 1000);
+}
+
+function stopHeart() { clearInterval(heartTicker); }
+
+function handlePresenceKey(e) {
+    if (!presenceActive) return;
 
     const now = performance.now();
-
-    if (lastKeyTime !== null) {
+    const log = document.getElementById('eventLog');
+    
+    if (lastKeyTime > 0) {
         const delta = now - lastKeyTime;
         intervals.push(delta);
 
-        // too perfect = you're gone
-        if (intervals.length > 6) {
-            const variance = calcVariance(intervals.slice(-6));
-            if (variance < 10) {
-                presenceStatus.innerText = "AUTOMATION DETECTED — PRESENCE LOST";
-                liveActive = false;
+        // PATTERN DETECTION (The Anti-Robot Guard)
+        if (intervals.length > 5) {
+            const lastFive = intervals.slice(-5);
+            const mean = lastFive.reduce((a, b) => a + b) / 5;
+            const variance = lastFive.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / 5;
+
+            if (variance < 50) {
+                log.innerHTML += `<span style="color:red">> AUTOMATION DETECTED. YOU ARE A SUBROUTINE.</span><br>`;
+                intervals = [];
                 return;
             }
-        }
 
-        evaluatePresence();
+            // VOLITIONAL/AUTONOMIC SYNC
+            // This is where the magic happens. Or the math.
+            const heartMs = 60000 / simulatedHeartRate;
+            const syncFactor = Math.abs(delta - heartMs);
+            const currentRand = Math.max(0, 1 - (syncFactor / 1000));
+
+            document.getElementById('liveRand').innerText = currentRand.toFixed(4);
+
+            if (currentRand > 0.88) {
+                onticites++;
+                document.getElementById('onticiteCount').innerText = onticites;
+                log.innerHTML += `<span style="color:white">> ONTICITE LOGGED: ${now.toFixed(0)} // GROUND CONTACT MADE</span><br>`;
+            }
+        }
     }
 
     lastKeyTime = now;
-}
-
-function evaluatePresence() {
-    if (intervals.length < 5) return;
-
-    const avg = intervals.reduce((a,b)=>a+b,0)/intervals.length;
-
-    // simulate autonomic rhythm drift
-    pseudoHeart += (Math.random()-0.5)*20;
-
-    const sync = Math.abs(avg - pseudoHeart);
-
-    // THIS IS THE CORE CLAIM:
-    // WHEN VOLITION AND AUTONOMIC RHYTHM CONVERGE,
-    // MEDIATION THINS
-    const rand = Math.max(0, 1 - (sync / 1000));
-
-    randLive.innerText = "LIVE RAND: " + rand.toFixed(4);
-
-    if (rand > 0.85) {
-        onticites++;
-        onticiteCount.innerText = "ONTICITES LOGGED: " + onticites;
-        presenceStatus.innerText = "GROUND CONTACT DETECTED";
-    } else {
-        presenceStatus.innerText = "SEARCHING...";
-    }
-}
-
-function calcVariance(arr) {
-    const mean = arr.reduce((a,b)=>a+b,0)/arr.length;
-    return arr.reduce((a,b)=>a+Math.pow(b-mean,2),0)/arr.length;
-}
-
-function calculateDecay() {
-    const A = parseFloat(bitsA.value);
-    const B = parseFloat(bitsB.value);
-    const n = parseFloat(stagesAB.value);
-    const m = parseFloat(stagesOriginA.value);
-
-    if (!A || !B || !n) {
-        alert("INSUFFICIENT STRUCTURE");
-        return;
-    }
-
-    const R = Math.pow((B/A),(1/n));
-    const origin = A / Math.pow(R,m);
-
-    results.style.display = "block";
-    randOut.innerText = "RAND VALUE: " + R.toFixed(4);
-    originOut.innerText = "ESTIMATED ORIGINAL STRUCTURE: " + origin.toFixed(2);
-
-    if (R < 0.05) {
-        horizon.innerText = "SEMANTIC EVENT HORIZON";
-    } else {
-        horizon.innerText = "";
-    }
+    log.scrollTop = log.scrollHeight;
 }
 </script>
 
